@@ -29,4 +29,81 @@ This project is an **LLM-powered business intelligence assistant** that enables 
    - `Product-Level Eligibility Table (mapped).csv`
 
 2. Install dependencies:
+   !pip install pandas matplotlib sqlalchemy google-generativeai
+
+
+3. Add your API key:
+   - In Colab, use the sidebar > **🔑 Secrets** > Add key as `GEMINI_API_KEY`
+
+---
+
+## 📦 Modules Overview
+
+| Component                     | Role                                              |
+|------------------------------|---------------------------------------------------|
+| `SQLite`:                    | Stores tabular data in memory                     |
+| `Gemini LLM`:                | Converts prompt → SQL                             |
+| `Formatter/Formatter+`:      | Converts query result → human-readable summary    |
+| `Manual SQL fallback`:       | Handles FAQ-style queries without LLM support     |
+| `Matplotlib Visuals`:        | Generates CPC/RoAS/Promo visualizations           |
+| `Event stream engine`:       | Streams responses, logs actions, supports overrides |
+
+---
+
+## 💡 Example Queries
+
+Ask questions like:
+
+- **“What is my total sales?”**
+- **“Calculate the RoAS (Return on Ad Spend).”**
+- **“Which product had the highest CPC?”**
+- **“Show me all products not eligible for promo.”**
+
+---
+
+## 📊 Visualizations Included
+
+| Type                        | Chart Description                           |
+|----------------------------|----------------------------------------------|
+| CPC                        | Top 10 products (bar chart)                  |
+| RoAS                       | Top 10 products (bar chart)                  |
+| Ad Spend vs Sales          | Scatter plot for correlation analysis        |
+| Promo Eligibility          | Pie chart by eligible/not eligible status    |
+
+---
+
+## 📡 Streaming Support
+
+Includes realistic streaming with:
+
+- ✍️ Typing simulation of responses
+- 🎯 Event tracking (`stream_start`, `chunk_received`, `stream_complete`)
+- ⛔ Interruptible streaming with `q` + Enter support
+
+---
+
+## 📁 Directory Essentials
+
+Make sure the following files are present and correctly named:
+
+- `*.csv` files (as referenced above)
+- Main script (`.py` or notebook with full logic)
+- GEMINI API key (loaded via Colab secrets or direct assignment)
+
+---
+
+## 📌 Requirements
+
+- Python 3.8+
+- Google Gemini API access
+- Compatible with Google Colab notebook or local Python runtime
+
+---
+
+## 📜 License
+
+This is a research and demonstration project. Not intended for production environments. Use at your own discretion.
+
+---
+
 
